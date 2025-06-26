@@ -68,6 +68,9 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " noremap H I
 " noremap I H
 
+" sudo write
+cmap w!! w !sudo tee % >/dev/null
+
 " 设置成普通模式，这样我可以在选择模式下改大写
 nnoremap U 5k
 nnoremap P 5j
