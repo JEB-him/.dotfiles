@@ -1,0 +1,12 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: openrouter:deepseek/deepseek-chat-v3-0324
+clients:
+- type: openai-compatible
+  name: openrouter
+  api_base: https://openrouter.ai/api/v1
+
+save_session: false
+
+left_prompt: '🤖 {color.white}^D> '
+right_prompt: ''
