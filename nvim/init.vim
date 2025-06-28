@@ -12,6 +12,7 @@ set colorcolumn=80
 set nocompatible
 set number
 set relativenumber
+set cursorline
 set wrap
 set showcmd
 set wildmenu
@@ -133,8 +134,9 @@ endfunc
 
 call plug#begin()
 
-" airline - beautiful status bar
-Plug 'vim-airline/vim-airline'
+" beautiful status bar
+" Plug 'vim-airline/vim-airline'
+ Plug 'echasnovski/mini.statusline'
 
 " Plug 'connorholyday/vim-snazzy'
 Plug 'junegunn/vim-peekaboo'
@@ -179,6 +181,7 @@ Plug 'fadein/vim-FIGlet'
 
 " theme
 Plug 'morhetz/gruvbox'
+Plug 'folke/tokyonight.nvim'
 
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -188,11 +191,21 @@ Plug 'voldikss/vim-translator'
  
 call plug#end()
 
-" Gruvbox config
-colorscheme gruvbox
-set background=dark
-" let g:gruvbox_transparent_bg = 1
-highlight Normal guibg=NONE ctermbg=None
+" Theme configuration
+if has('nvim')
+    colorscheme tokyonight-storm
+    " cursorline
+    highlight CursorLineNr guifg=#2866a4 ctermfg=25
+    " statusline
+    lua require('mini.statusline').setup()
+else
+    " Gruvbox config
+    colorscheme gruvbox
+    set background=dark
+    " let g:gruvbox_transparent_bg = 1
+    highlight Normal guibg=NONE ctermbg=None
+endif
+
 
 " ===
 " === NERDTree
@@ -229,6 +242,8 @@ let g:coc_global_extensions = [
       \ 'coc-html',
       \ 'coc-yaml',
       \ 'coc-vimlsp']
+
+
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
@@ -245,7 +260,13 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <c-@> coc#refresh()
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
 " 查看上一个或下一个报错
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -455,11 +476,11 @@ let g:mkdp_combine_preview_auto_refresh = 1
 source ~/.vim/snippits.vim
 
 " ===
-" === Translating Plugin
+" === Translatiing Plugin
 " ===
 
-nmap <silent> <C-S-y> <Plug>TranslateW
-vmap <silent> <C-S-y> <Plug>TranslateWV
+nmap <silent> <A-Y> <Plug>TranslateW
+vmap <silent> <A-Y> <Plug>TranslateWV
 let g:translator_default_engines = ['bing']
 
 
@@ -479,8 +500,13 @@ augroup END
 if has('termguicolors')
   set termguicolors
 endif
-let g:indentLine_char = '┆'         " 缩进符号，可改为 │、┆ 等
+let g:indentLine_char = '┊'         " 缩进符号，可改为 │、┆ 等
 let g:indentLine_enabled = 1        " 启用
 let g:indentLine_concealcursor = '' " 插入模式不隐藏缩进线
-let g:indentLine_setColors = 1      " 插件强制设色
+if has('nvim')
+    let g:indentLine_setColors = 1      " 插件强制设色
+    " let g:indentLine_color_gui = '#404364'
+else
+    let g:indentLine_setColors = 1      " 插件强制设色
+endif
 
