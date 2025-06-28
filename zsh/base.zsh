@@ -7,6 +7,17 @@ alias ggdb='gdb -tui'
 alias pcmr='sudo reflector --country China --sort rate --protocol https --latest 20 --save /etc/pacman.d/mirrorlist'
 alias h='history 0'
 
+# === 一些快捷键 ===
+
+# lazygit
+function lazygit_widget() {
+  lazygit
+  zle reset-prompt
+}
+zle -N lazygit_widget
+bindkey '^g' lazygit_widget
+
+
 # 设置默认编辑器
 export EDITOR=nvim
 export VISUAL=nvim
