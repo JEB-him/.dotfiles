@@ -1,5 +1,4 @@
 {
-    "clangd.arguments": ["--fallback-style=Google"],
     "coc.preferences.semanticTokensHighlights": false,
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.snippetStatusText": "Ⓢ ",
