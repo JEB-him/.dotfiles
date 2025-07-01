@@ -479,8 +479,8 @@ source ~/.vim/snippits.vim
 " === Translatiing Plugin
 " ===
 
-nmap <silent> <A-Y> <Plug>TranslateW
-vmap <silent> <A-Y> <Plug>TranslateWV
+nmap <silent> <c-T> <Plug>TranslateW
+vmap <silent> <c-T> <Plug>TranslateWV
 let g:translator_default_engines = ['bing']
 
 

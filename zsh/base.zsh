@@ -6,16 +6,21 @@ alias tmp='cd ~/TMP/'
 alias ggdb='gdb -tui'
 alias pcmr='sudo reflector --country China --sort rate --protocol https --latest 20 --save /etc/pacman.d/mirrorlist'
 alias h='history 0'
+alias hibernate='sudo systemctl hibernate'
 
 # === 一些快捷键 ===
 
+if [[ -o interactive ]]; then
+  echo "Binding a key map for lazygit."
+fi
 # lazygit
-function lazygit_widget() {
+function lazygit-widget() {
   lazygit
   zle reset-prompt
 }
-zle -N lazygit_widget
-bindkey '^g' lazygit_widget
+zle -N lazygit-widget
+bindkey '^g' lazygit-widget
+echo 'set the fucking lazygit!'
 
 
 # 设置默认编辑器
