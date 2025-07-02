@@ -7,12 +7,10 @@ alias ggdb='gdb -tui'
 alias pcmr='sudo reflector --country China --sort rate --protocol https --latest 20 --save /etc/pacman.d/mirrorlist'
 alias h='history 0'
 alias hibernate='sudo systemctl hibernate'
+alias t='trans :zh -brief -v -e bing'
 
 # === 一些快捷键 ===
 
-if [[ -o interactive ]]; then
-  echo "Binding a key map for lazygit."
-fi
 # lazygit
 function lazygit-widget() {
   lazygit
@@ -20,8 +18,6 @@ function lazygit-widget() {
 }
 zle -N lazygit-widget
 bindkey '^g' lazygit-widget
-echo 'set the fucking lazygit!'
-
 
 # 设置默认编辑器
 export EDITOR=nvim
@@ -110,3 +106,19 @@ function y() {
 
 # 设置 clangd 编码风格
 export CLANGD_FLAGS="--fallback-style=Google"
+
+# Add a hint about Linux qq
+preexec_yay_confirmation() {
+    # 检查是否运行了 yay -Syu 或类似命令
+    if [[ "$1" == yay\ -Syu* || "$1" == yay\ -Suy* ]]; then
+        echo -e "\n\033[1;31m⚠️ 警告： 若更新 QQ，会破坏 desktop 里面的配置！建议不要更新！（yay -Syu）\033[0m"
+        echo -e "\033[1;33m按 Enter 继续，或按 Ctrl+C 取消...\033[0m"
+        # 等待用户确认（按 Enter 继续，Ctrl+C 取消）
+        read -k 1 -s "?>>> "
+        echo  # 换行
+    fi
+}
+
+# 添加 preexec 钩子
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec preexec_yay_confirmation
