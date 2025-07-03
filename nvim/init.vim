@@ -195,9 +195,10 @@ call plug#end()
 if has('nvim')
     colorscheme tokyonight-storm
     " cursorline
-    highlight CursorLineNr guifg=#2866a4 ctermfg=25
+    highlight CursorLineNr guifg=#00EFEE ctermfg=25
     " statusline
     lua require('mini.statusline').setup()
+    highlight Normal guibg=NONE ctermbg=None
 else
     " Gruvbox config
     colorscheme gruvbox
