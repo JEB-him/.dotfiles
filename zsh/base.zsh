@@ -34,6 +34,7 @@ alias ll='ls -l --color=auto'
 alias l.='ls -d .* --color=auto'
 alias cgvim='nvim ~/.vim/vimrc'
 alias cgzsh='nvim ~/.zshrc'
+alias cghypr='nvim ~/.config/hypr/hyprland.conf'
 
 # 设置 PATH
 export PATH="$HOME/.local/bin:$PATH"
@@ -78,7 +79,7 @@ function conda() {
 }
 
 # zsh plugins
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # AI Alias
 alias ag="aichat --role Jh --session default"
