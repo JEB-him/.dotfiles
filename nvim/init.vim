@@ -528,3 +528,7 @@ function! s:ToggleIndent24()
     endif
 endfunction
 nnoremap <leader><Tab> :call <SID>ToggleIndent24()<CR>
+" ===
+" === My customed function with bingding
+" ===
+source ~/.vim/customed_Func-Bind.vim
