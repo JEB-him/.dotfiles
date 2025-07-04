@@ -6,7 +6,7 @@ alias tmp='cd ~/TMP/'
 alias ggdb='gdb -tui'
 alias pcmr='sudo reflector --country China --sort rate --protocol https --latest 20 --save /etc/pacman.d/mirrorlist'
 alias h='history 0'
-alias hibernate='sudo systemctl hibernate'
+alias hibernate='systemctl hibernate'
 alias t='trans :zh -brief -v -e bing'
 
 # === 一些快捷键 ===
