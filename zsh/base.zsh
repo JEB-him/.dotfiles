@@ -8,6 +8,7 @@ alias pcmr='sudo reflector --country China --sort rate --protocol https --latest
 alias h='history 0'
 alias hibernate='systemctl hibernate'
 alias t='trans :zh -brief -v -e bing'
+alias code='function _code() { command code "$1" --ozone-platform-hint-auto --enable-wayland-ime; }; _code'
 
 # === 一些快捷键 ===
 
