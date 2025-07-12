@@ -194,11 +194,13 @@ call plug#end()
 " Theme configuration
 if has('nvim')
     colorscheme tokyonight-storm
-    " cursorline
-    highlight CursorLineNr guifg=#00EFEE ctermfg=25
     " statusline
     lua require('mini.statusline').setup()
     highlight Normal guibg=NONE ctermbg=None
+    " linenumber
+    highlight CursorLineNr guifg=#00EFEE ctermfg=25
+    highlight LineNrAbove  guifg=#9DA8CF          " 设置普通行号的颜色
+    highlight LineNrBelow  guifg=#9DA8CF          " 设置普通行号的颜色
 else
     " Gruvbox config
     colorscheme gruvbox
