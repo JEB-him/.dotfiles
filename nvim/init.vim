@@ -510,3 +510,20 @@ else
     let g:indentLine_setColors = 1      " 插件强制设色
 endif
 
+" Toggle indent width
+function! s:ToggleIndent24()
+    " 当前宽度是 2 → 切到 4
+    if &shiftwidth == 2
+        let &shiftwidth = 4
+        let &tabstop     = 4
+        let &softtabstop = 4
+        echo "Indent: 4"
+    else
+    " 其余情况（包括 4）→ 切到 2
+        let &shiftwidth = 2
+        let &tabstop     = 2
+        let &softtabstop = 2
+        echo "Indent: 2"
+    endif
+endfunction
+nnoremap <leader><Tab> :call <SID>ToggleIndent24()<CR>
