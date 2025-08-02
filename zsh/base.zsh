@@ -37,15 +37,12 @@ alias cgvim='nvim ~/.vim/vimrc'
 alias cgzsh='nvim ~/.zshrc'
 alias cghypr='nvim ~/.config/hypr/hyprland.conf'
 
-# 设置 PATH
-export PATH="$HOME/.local/bin:$PATH"
-
 # 设置代理
-alias setproxy="export http_proxy=http://127.0.0.1:7897/; export https_proxy=http://127.0.0.1:7897/; echo 'Set proxy successfully'"
+alias setproxy="export http_proxy=http://127.0.0.1:10808/; export https_proxy=http://127.0.0.1:10808/; echo 'Set proxy successfully'"
 alias unsetproxy="unset http_proxy; unset https_proxy; echo 'Unset proxy successfully'"
 
 # npm 代理
-alias setnpmproxy="npm config set proxy http://127.0.0.1:7897; npm config set https-proxy http://127.0.0.1:7897; echo 'Set npm proxy successfully'"
+alias setnpmproxy="npm config set proxy http://127.0.0.1:10808; npm config set https-proxy http://127.0.0.1:10808; echo 'Set npm proxy successfully'"
 alias unsetnpmproxy="npm config delete proxy; npm config delete https-proxy; echo 'Unset npm proxy successfully'"
 
 # 配置 TWOUC 数据库信息

@@ -10,3 +10,5 @@ source ~/.dotfiles/zsh/cursor.zsh
 source ~/.dotfiles/zsh/zim.zsh
 source ~/.dotfiles/zsh/fzf.zsh
 source ~/.dotfiles/zsh/base.zsh
+
+. "$HOME/.local/share/../bin/env"
