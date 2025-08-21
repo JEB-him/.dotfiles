@@ -9,6 +9,7 @@ alias h='history 0'
 alias hibernate='systemctl hibernate'
 alias t='trans :zh -brief -v -e bing'
 alias code='function _code() { command code "$1" --ozone-platform-hint-auto --enable-wayland-ime; }; _code'
+alias man='/usr/local/bin/man_for_jeb.sh'
 
 # === 一些快捷键 ===
 
