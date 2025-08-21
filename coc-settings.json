@@ -109,6 +109,7 @@
         "{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
     ],
     "html.format.enable": true,
+    "html.format.wrapAttributesIndentSize": 2,
     "javascript.referencesCodeLens.enable": true,
     "javascript.showUnused": true,
     "javascript.suggest.names": true,
