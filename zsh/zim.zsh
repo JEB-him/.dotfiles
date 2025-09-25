@@ -127,6 +127,3 @@ for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
-
-# Add my configuration of Zim frame
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#0FFFFF'
