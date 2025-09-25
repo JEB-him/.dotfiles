@@ -9,10 +9,11 @@ filename="$(date +%Y%m%d)-$(date +%s | md5sum | head -c 16).png"
 # 完整文件路径
 filepath="$(pwd)/images/${filename}"
 
-# 使用 xclip 保存剪贴板图片（支持 PNG/JPG 格式）
-if xclip -selection clipboard -t image/png -o > "$filepath" 2>/dev/null; then
+# 原本为了兼容使用了 xclip，但似乎不太稳定
+# 使用 wl-paste 保存剪贴板图片（支持 PNG/JPG 格式）
+if wl-paste --type image/png > "$filepath" 2>/dev/null; then
     echo "save to: $filepath"
-elif xclip -selection clipboard -t image/jpeg -o > "$filepath" 2>/dev/null; then
+elif wl-paste --type image/jpeg > "$filepath" 2>/dev/null; then
     echo "save to: $filepath"
 else
     echo "剪贴板中没有图片数据！"
