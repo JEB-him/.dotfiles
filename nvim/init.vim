@@ -190,7 +190,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Translating Plugin
 Plug 'voldikss/vim-translator'
- 
+
+" fzf.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 " Theme configuration
@@ -246,6 +250,7 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ 'coc-html',
       \ 'coc-yaml',
+      \ 'coc-cmake',
       \ 'coc-vimlsp']
 
 
@@ -341,6 +346,24 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" Mappings for CoCList
+" Show all diagnostics
+nnoremap <silent><nowait> <leader>sa  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent><nowait> <leader>se  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent><nowait> <leader>sc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent><nowait> <leader>so  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent><nowait> <leader>ss  :<C-u>CocList -I symbols<cr>
+" Do default action for next item
+nnoremap <silent><nowait> <leader>sj  :<C-u>CocNext<CR>
+" Do default action for previous item
+nnoremap <silent><nowait> <leader>sk  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent><nowait> <leader>sp  :<C-u>CocListResume<CR>
 
 " ===
 " === vim-table-mode
@@ -497,7 +520,7 @@ let g:translator_default_engines = ['bing']
 augroup filetype_indent_override
   autocmd!
   autocmd FileType python   setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-  autocmd FileType c,cpp    setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType c,cpp    setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
   autocmd FileType make     setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=0
   autocmd FileType javascript,html,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 augroup END
@@ -533,6 +556,16 @@ function! s:ToggleIndent24()
     endif
 endfunction
 nnoremap <leader><Tab> :call <SID>ToggleIndent24()<CR>
+
+" ===
+" === FZF.vim configuration
+" ===
+nnoremap <C-s>f :Files<CR>
+nnoremap <C-s>g :Files ~<CR>
+nnoremap <C-s>r :RG<CR>
+nnoremap <C-s>l :Lines<CR>
+nnoremap <C-s>b :BLines<CR>
+
 " ===
 " === My customed function with bingding
 " ===
